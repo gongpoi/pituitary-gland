@@ -1,0 +1,3 @@
+python 1_create_dataset.py data\config\default.yaml data\my-ct-dataset-cropped data\my-ct-mv.h5
+
+python 2_train_segmentation.py data\config\default.yaml data\my-ct-mv.h5 runs\
