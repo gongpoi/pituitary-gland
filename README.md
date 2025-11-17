@@ -6,6 +6,6 @@ python 1_create_dataset.py data\config\default.yaml data\my-ct-dataset-cropped d
 
 python 2_train_segmentation.py data\config\default.yaml data\my-ct-mv.h5 runs\
 
-for /D %C in (data\my-ct-dataset-cropped\val\*) do python 5_predict.py "data\config\default.yaml" "runs" "%~fC" "%~fC\mask_predicted.nii"
+for /D %C in ("data\my-ct-dataset-cropped\val\*") do python 5_predict.py "data\config\default.yaml" "runs" "%~fC" "%~fC\mask_predicted.nii"
 
-for /D %C in (data\my-ct-dataset-cropped\val\*) do python eval_dice.py "%~fC\mask.nii" "%~fC\mask_predicted.nii"
+python eval_dice.py "data\my-ct-dataset-cropped\val"
